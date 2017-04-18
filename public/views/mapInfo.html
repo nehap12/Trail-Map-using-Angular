@@ -1,0 +1,100 @@
+<div class="container" ng-controller="MapInfoController">
+    <div class="jumbotron">
+        <div class="row">
+            <div id="first" class="col-sm-5">
+                <div class="well well-lg">
+                    <div id="map"></div>
+                </div>
+            </div>
+            <div id="second" class="col-sm-7">
+                <div class="well well-lg">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">PCT Mile Markers</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-12" ng-if="!showPCTCoordinates">
+                                <h5>{{message}}</h5>
+                            </div>
+                            <div class="col-md-12" ng-if="showPCTCoordinates">
+                            <div class="table-responsive">
+                            <table class="table table-fixed">
+                                <thead>
+                                    <tr>
+                                        <th>Mile Marker</th>
+                                        <th>Latitude</th>
+                                        <th>Longitude</th>
+                                        <th>Functions</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="coords in coordinates">
+                                    <tr>
+                                        <td>
+                                            <div ng-hide="coords.editable">{{coords.mileMarker}}</div>
+                                            <div ng-show="coords.editable"><input type="text" ng-model="coords.mileMarker" /></div>
+                                        </td>
+                                        <td>
+                                            <div ng-hide="coords.editable">{{coords.lat}}</div>
+                                            <div ng-show="coords.editable"><input type="text" ng-model="coords.lat" /></div>
+                                        </td>
+                                        <td>
+                                            <div ng-hide="coords.editable">{{coords.long}}</div>
+                                            <div ng-show="coords.editable"><input type="text" ng-model="coords.long" /></div>
+                                        </td>
+                                        <td>
+                                            <div class="buttons">
+                                                <button ng-hide="coords.editable" type="button" class="btn btn-primary" ng-click="editPCT(coords)">Edit</button>
+                                                <button ng-show="coords.editable" type="submit" class="btn btn-primary" ng-click="savePCT(coords, $index)">save</button>
+                                                &nbsp
+                                                <button ng-show="coords.editable" type="button" ng-click="cancel(coords)" class="btn btn-default">cancel</button>
+                                                <button ng-hide="coords.editable" type="button" class="btn btn-danger" ng-click="removePCT(coords.mileMarker, $index)">Del</button>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                        <button type="submit" class="btn btn-success col-xs-offset-10" ng-click="loadPCT()">Load PCT</button>
+                    <hr>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Find Nearest Mile Marker</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form name="findNearest" class="form-inline">
+                                <div class="form-group row">
+                                    <div class="col-xs-6"><input type="text" id="latFind" class="form-control" placeholder="Latitude"></div>
+                                    <div class="col-xs-6"><input type="text" id="lngFind" class="form-control" placeholder="Longitude"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <button type="submit" class="btn btn-success col-xs-offset-4" ng-click="findNearestPCT()">Find</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Add New Mile Marker</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form name="addNew"  class="form-inline">
+                                <div class="form-group row">
+                                    <div class="col-xs-6"><input type="text" id="lat" class="form-control" placeholder="Latitude"></div>
+                                    <div class="col-xs-6"><input type="text" id="lng" class="form-control" placeholder="Longitude"></div>
+                                </div>
+                                <div class="form-group row">
+                                    <button type="submit" class="btn btn-success col-xs-offset-4" ng-click="addPCT()">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

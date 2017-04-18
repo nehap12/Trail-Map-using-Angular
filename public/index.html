@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Sincerely Inc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.2/angular-resource.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB88SV1p3thpefPqfJiej5_HuQaf-0vLJk&libraries=geometry"></script>
+    <script src="https://googlemaps.github.io/js-marker-clusterer/src/markerclusterer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/split.js/1.2.0/split.min.js"></script>
+
+
+    <!--Angular Custom Files-->
+    <script src="./app.js"></script>
+    <script src="./controllers/MapInfoController.js"></script>
+    <script src="./services/StorageService.js"></script>
+    <script src="./services/MapService.js"></script>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="./stylesheets/main.css">
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Sincerely</a>
+        </div>
+    </div>
+</nav>
+
+<!--Single pages-->
+
+<div>
+    <div ng-view></div>
+</div>
+
+</body>
+</html>

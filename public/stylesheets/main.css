@@ -1,0 +1,30 @@
+#map {
+    width: 100%;
+    height: 573px;
+    background-color: dodgerblue;
+}
+
+.glyphicon {
+    font-size : 15px;
+}
+
+.glyphicon-remove {
+    color: red;
+}
+
+.table-fixed {
+    height : 140px;
+    display : block !important;
+    width : 97%;
+}
+
+.table-fixed tbody {
+    height: 100px;
+    overflow-y: scroll;
+    width: 97%;;
+    background-color: azure;
+}
+
+body {
+    background-color: #33A1C9;
+}
